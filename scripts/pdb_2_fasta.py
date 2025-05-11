@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 This script takes as first argument a PDB ID, extracts the RNA sequences and prints them using the FASTA format
 """
@@ -6,13 +6,15 @@ This script takes as first argument a PDB ID, extracts the RNA sequences and pri
 import sys
 from pyrna.db import PDB
 from pyrna.parsers import parse_pdb, to_fasta
-
+from pyrna.model import Toto
 def fetch(pdb_id):
     pdb = PDB()
     content = pdb.get_entry(pdb_id)
     print(to_fasta([ts.rna for ts in parse_pdb(content)]))  
 
 if __name__ == "__main__":
+    t = Toto()
+    print(t.residue_name)
     if len(sys.argv) < 2:
         print("Usage: pdb2_fasta.py PDB_ID (try for example: pdb2_fasta.py 1HR2)")
         sys.exit()

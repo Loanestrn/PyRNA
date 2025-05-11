@@ -235,6 +235,12 @@ class Residue3D:
     def add_atom(self, atom_name, coords):
         self.atoms.append(Atom(atom_name, coords[0], coords[1], coords[2]))
 
+class Toto(Residue3D):
+    def __init__(self):
+        Residue3D.__init__(self,"toto")
+
+
+
 class TertiaryStructure:
 
     def __init__(self, rna):
